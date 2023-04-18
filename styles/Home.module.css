@@ -227,12 +227,15 @@
     transform: rotate(0deg);
   }
 }
+
+
 .container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #e4f4f4;
 }
 
 .main {
@@ -248,9 +251,19 @@
   margin: 0;
   line-height: 1.15;
   font-size: 6rem;
+  font-family: 'Poppins', sans-serif;
   text-align: center;
   color: #343a40;
   text-shadow: 2px 2px #ced4da;
+}
+
+.title span {
+  display: block;
+}
+
+.title .underline {
+  border-bottom: 5px solid #343a40;
+  padding-bottom: 0.5rem;
 }
 
 .description {
@@ -258,7 +271,7 @@
   line-height: 1.5;
   font-size: 2rem;
   color: #343a40;
-  text-shadow: 1px 1px #ced4da;
+  font-family: 'Poppins', sans-serif;
   margin: 2rem 0;
 }
 
@@ -266,16 +279,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 2rem 0;
+  margin: 3rem 0;
 }
 
 .button {
   font-size: 3rem;
-  padding: 1rem 2rem;
+  padding: 1.5rem 2rem;
   border-radius: 50%;
   border: none;
   margin: 0 2rem;
   cursor: pointer;
-  text-shadow: 1px 1px #ced4da;
-  transition: all 0.3s ease;
+}
+
+.footer {
+  color: Black,
+  
 }
