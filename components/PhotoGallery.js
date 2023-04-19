@@ -86,6 +86,8 @@ const styles = {
   image: {
     height: '100%',
     objectFit: 'cover',
+    userSelect: 'none',
+    touchAction: 'pan-y',
   },
 }
 
