@@ -1,26 +1,47 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react';
 
+const AUTO_SCROLL_INTERVAL = 3000;
 const SWIPE_THRESHOLD = 40;
 
 const PhotoGallery = ({ images }) => {
-  const [index, setIndex] = useState(0)
+  const [index, setIndex] = useState(0);
   const [touchStartX, setTouchStartX] = useState(null);
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    let intervalId;
+
+    const handleAutoScroll = () => {
+      setIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
+    };
+
+    const startAutoScroll = () => {
+      intervalId = setInterval(handleAutoScroll, AUTO_SCROLL_INTERVAL);
+    };
+
+    const stopAutoScroll = () => {
+      clearInterval(intervalId);
+    };
+
+    container.addEventListener('mouseover', stopAutoScroll);
+    container.addEventListener('mouseout', startAutoScroll);
+    startAutoScroll();
+
+    return () => {
+      container.removeEventListener('mouseover', stopAutoScroll);
+      container.removeEventListener('mouseout', startAutoScroll);
+      clearInterval(intervalId);
+    };
+  }, [images]);
 
   if (!images || images.length === 0) {
-    return <div>No images to display.</div>
-  }
-
-  const handlePrevious = () => {
-    setIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1))
-  }
-
-  const handleNext = () => {
-    setIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1))
+    return <div>No images to display.</div>;
   }
 
   const handleTouchStart = (event) => {
     setTouchStartX(event.touches[0].clientX);
-  }
+  };
 
   const handleTouchMove = (event) => {
     if (touchStartX === null) {
@@ -31,64 +52,57 @@ const PhotoGallery = ({ images }) => {
     const touchDiffX = touchEndX - touchStartX;
 
     if (touchDiffX > SWIPE_THRESHOLD) {
-      handlePrevious();
+      setIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
       setTouchStartX(null);
     } else if (touchDiffX < -SWIPE_THRESHOLD) {
-      handleNext();
+      setIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
       setTouchStartX(null);
     }
-  }
+  };
 
   const handleTouchEnd = () => {
     setTouchStartX(null);
-  }
+  };
 
   return (
-    <div style={styles.container} onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd}>
-      <button style={{...styles.button, ...styles.leftButton}} onClick={handlePrevious}>
-        {'<'}
-      </button>
-      <img style={styles.image} src={images[index]} alt="" />
-      <button style={{...styles.button, ...styles.rightButton}} onClick={handleNext}>
-        {'>'}
-      </button>
+    <div
+      style={styles.container}
+      ref={containerRef}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
+      {images.map((image, i) => (
+        <img
+          key={i}
+          style={{ ...styles.image, transform: `translateX(${100 * (i - index)}%)` }}
+          src={image}
+          alt=""
+        />
+      ))}
     </div>
-  )
-}
+  );
+};
 
 const styles = {
   container: {
     maxWidth: '600px',
     margin: '0 auto',
     display: 'flex',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
     height: '400px',
     overflow: 'hidden',
     touchAction: 'pan-y',
   },
-  button: {
-    position: 'absolute',
-    top: '50%',
-    transform: 'translateY(-50%)',
-    backgroundColor: 'transparent',
-    border: 'none',
-    cursor: 'pointer',
-    fontSize: '24px',
-    fontWeight: 'bold',
-  },
-  leftButton: {
-    left: '0',
-  },
-  rightButton: {
-    right: '0',
-  },
   image: {
     height: '100%',
+    width: '100%',
     objectFit: 'cover',
     userSelect: 'none',
     touchAction: 'pan-y',
+    transition: 'transform 0.5s ease',
   },
-}
+};
 
-export default PhotoGallery
+export default PhotoGallery;
