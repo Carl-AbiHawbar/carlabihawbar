@@ -4,7 +4,7 @@ const AUTO_SCROLL_INTERVAL = 3000;
 const SWIPE_THRESHOLD = 40;
 
 const PhotoGallery = ({ images }) => {
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(Math.floor(images.length / 2));
   const [touchStartX, setTouchStartX] = useState(null);
   const containerRef = useRef(null);
 
@@ -75,7 +75,7 @@ const PhotoGallery = ({ images }) => {
       {images.map((image, i) => (
         <img
           key={i}
-          style={{ ...styles.image, transform: `translateX(${100 * (i - index)}%)` }}
+          style={{ ...styles.image, transform: `translateX(${10 * (i - index)}%)` }}
           src={image}
           alt=""
         />
@@ -86,8 +86,7 @@ const PhotoGallery = ({ images }) => {
 
 const styles = {
   container: {
-    maxWidth: '600px',
-    margin: '0 auto',
+    margin: '0',
     display: 'flex',
     justifyContent: 'flex-start',
     alignItems: 'center',
