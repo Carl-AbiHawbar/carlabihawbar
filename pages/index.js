@@ -84,7 +84,9 @@ export default function Home() {
 
   const handleYesClick = () => {
     setShowConfetti(true)
-  }    
+  }
+
+  const images = ['vercel.svg', 'next.svg',]
 
   return (
     <div style={container}>
@@ -130,7 +132,7 @@ export default function Home() {
         <div style={animationContainer}>
           <img style={animation} src="/couple_dancing.gif" alt="" />
         </div>
-        <PhotoGallery/>
+        <PhotoGallery images={images}/>
       </main>
 
       <footer style={{textAlign: 'center'}}>
