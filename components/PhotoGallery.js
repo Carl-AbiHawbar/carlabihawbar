@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 
 const AUTO_SCROLL_INTERVAL = 3000;
-const SWIPE_THRESHOLD = 40;
+const SWIPE_THRESHOLD = 400;
 
 const PhotoGallery = ({ images }) => {
-  const [index, setIndex] = useState(Math.floor(images.length / 2));
+  const [index, setIndex] = useState(0);
   const [touchStartX, setTouchStartX] = useState(null);
   const containerRef = useRef(null);
 
@@ -72,21 +72,25 @@ const PhotoGallery = ({ images }) => {
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
-      {images.map((image, i) => (
-        <img
-          key={i}
-          style={{ ...styles.image, transform: `translateX(${10 * (i - index)}%)` }}
-          src={image}
-          alt=""
-        />
-      ))}
+      {images.map((image, i) => {
+        const adjustedIndex = (i - index + images.length) % images.length;
+        return (
+          <img
+            key={i}
+            style={{ ...styles.image, transform: `translateX(${10 * adjustedIndex}%)` }}
+            src={image}
+            alt=""
+          />
+        );
+      })}
     </div>
   );
 };
 
 const styles = {
   container: {
-    margin: '0',
+    maxWidth: '10000px',
+    margin: '0 auto',
     display: 'flex',
     justifyContent: 'flex-start',
     alignItems: 'center',
@@ -104,4 +108,4 @@ const styles = {
   },
 };
 
-export default PhotoGallery;
+export default PhotoGallery
