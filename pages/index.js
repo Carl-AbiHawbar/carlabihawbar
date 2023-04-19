@@ -86,7 +86,7 @@ export default function Home() {
     setShowConfetti(true)
   }
 
-  const images = ['vercel.svg', 'next.svg',]
+  const images = ['img1.jpg', 'img2.jpg',]
 
   return (
     <div style={container}>
