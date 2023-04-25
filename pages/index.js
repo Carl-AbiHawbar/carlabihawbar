@@ -2,7 +2,6 @@ import Head from 'next/head'
 import Confetti from 'react-confetti'
 import { useState } from 'react'
 import Image from 'next/image'
-import PhotoGallery from '@/components/PhotoGallery'
 
 
 const container = {
