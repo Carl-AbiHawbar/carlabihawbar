@@ -77,7 +77,7 @@ const PhotoGallery = ({ images }) => {
         return (
           <img
             key={i}
-            style={{ ...styles.image, transform: `translateX(${10 * adjustedIndex}%)` }}
+            style={{ ...styles.image, transform: `translateX(${1 * adjustedIndex}%)` }}
             src={image}
             alt=""
           />
@@ -89,7 +89,7 @@ const PhotoGallery = ({ images }) => {
 
 const styles = {
   container: {
-    maxWidth: '10000px',
+    maxWidth: '100000px',
     margin: '0 auto',
     display: 'flex',
     justifyContent: 'flex-start',

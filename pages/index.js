@@ -13,6 +13,10 @@ const container = {
   minHeight: '100vh',
   padding: '0 0.5rem',
   fontFamily: "'Poppins', sans-serif",
+  color:"#97D3D1",
+  backgroundColor:"#FEFFF8",
+  borderImage: 'url(/back.png) 30 repeat',
+  border: "20px solid transparent",
 }
 
 const main = {
@@ -34,7 +38,7 @@ const title = {
 }
 
 const underline = {
-  borderBottom: '3px solid #FFD700',
+  borderBottom: '3px solid #555555',
 }
 
 const description = {
@@ -92,15 +96,15 @@ export default function Home() {
     <div style={container}>
       <Head>
         <title>Will you go to prom with me?</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/star.png" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
       </Head>
 
       <main style={main}>
         <h1 style={title}>
-          <span>Will you </span> 
+          <span><Image width={100} height={100} src="/star.png" />Will you </span> 
           <span style={underline}>go to prom </span> 
-          <span>with me?</span>
+          <span>with me?<Image width={100} height={100} src="/star.png" /></span>
         </h1>
 
         <p style={description}>
