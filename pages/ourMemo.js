@@ -1,19 +1,20 @@
 import React, { useRef } from 'react';
 
-function ourMemo(props) {
+function ourMemo() {
   const videoRef = useRef(null);
 
-  function handlePlay() {
-    videoRef.current.play();
-  }
+  const handlePlayClick = () => {
+    if (videoRef.current) {
+      videoRef.current.play();
+    }
+  };
 
   return (
     <div>
       <video ref={videoRef} width="640" height="360" controls>
-        <source src="public/myvideo.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
+        <source src="/video.mp4" type="video/mp4" />
       </video>
-      <button onClick={handlePlay}>Play</button>
+      <button onClick={handlePlayClick}>Play</button>
     </div>
   );
 }
