@@ -143,7 +143,7 @@ export default function Home() {
         <div style={animationContainer}>
           <img style={animation} src="/couple_dancing.gif" alt="" />
         </div>
-        <PhotoGallery images={images}/>
+        {/* <PhotoGallery images={images}/> */}
       </main>
 
       {/* <footer style={{textAlign: 'center'}}>
