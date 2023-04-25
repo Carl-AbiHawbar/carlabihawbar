@@ -90,6 +90,13 @@ export default function Home() {
     setShowConfetti(true)
   }
 
+
+  const handleNoClick = () => {
+    const url = "https://youtu.be/PyeS1T00eog"; // replace with your desired link
+    window.open(url, "_blank");
+  }
+  
+
   const images = ['img1.jpg', 'img2.jpg', 'img1.jpg', 'img2.jpg']
 
   return (
@@ -121,7 +128,7 @@ export default function Home() {
           <button style={{...button, ...yesButton}} onClick={handleYesClick}>
             <span>Yes!</span>
           </button>
-          <button style={{...button, ...noButton}}>
+          <button style={{...button, ...noButton}} onClick={handleNoClick}>
             <span>No.</span>
           </button>
         </div>
