@@ -146,11 +146,11 @@ export default function Home() {
         <PhotoGallery images={images}/>
       </main>
 
-      <footer style={{textAlign: 'center'}}>
+      {/* <footer style={{textAlign: 'center'}}>
         <p>
           Powered By Mj's Boyfriend.
         </p>
-      </footer>
+      </footer> */}
     </div>
   )
 }
