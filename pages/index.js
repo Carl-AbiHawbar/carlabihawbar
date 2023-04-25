@@ -83,6 +83,14 @@ const animation = {
   maxWidth: '50%',
 }
 
+const playButton = {
+  margin: '0',
+};
+
+const playButtonHover = {
+  transform: 'scale(1.1)',
+};
+
 export default function Home() {
   const [showConfetti, setShowConfetti] = useState(false)
 
@@ -96,6 +104,10 @@ export default function Home() {
     // window.open(url, "_blank");
   }
   
+  const handlePlayClick = () => {
+    const url = "/video.mp4";
+    window.open(url, "_blank");
+  };
 
   const images = ['img1.jpg', 'img2.jpg', 'img1.jpg', 'img2.jpg']
 
@@ -125,13 +137,16 @@ export default function Home() {
         </p>
 
         <div style={buttonContainer}>
-          <button style={{...button, ...yesButton}} onClick={handleYesClick}>
+          <a style={{...button, ...yesButton}} onMouseOver={(e) => Object.assign(e.target.style, playButtonHover)} onMouseOut={(e) => e.target.style.transform = 'scale(1)'} onClick={handleYesClick}>
             <span>Yes!</span>
-          </button>
-          <button style={{...button, ...noButton}} onClick={handleNoClick}>
+          </a>
+          <a style={{...button, ...noButton}} onMouseOver={(e) => Object.assign(e.target.style, playButtonHover)} onMouseOut={(e) => e.target.style.transform = 'scale(1)'} onClick={handleNoClick}>
             <span>No.</span>
-          </button>
+          </a>
         </div>
+        <div>
+          <p>Our Memories:</p>
+          <a style={playButton} hoverStyle={playButtonHover} onClick={handlePlayClick} onMouseOver={(e) => Object.assign(e.target.style, playButtonHover)} onMouseOut={(e) => e.target.style.transform = 'scale(1)'}><Image width={50} height={50} src="/play.png"/></a></div>
 
         {showConfetti && (
           <Confetti
