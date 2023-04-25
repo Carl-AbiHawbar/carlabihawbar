@@ -80,7 +80,7 @@ const animationContainer = {
 }
 
 const animation = {
-  maxWidth: '100%',
+  maxWidth: '50%',
 }
 
 export default function Home() {
@@ -92,8 +92,8 @@ export default function Home() {
 
 
   const handleNoClick = () => {
-    const url = "https://youtu.be/PyeS1T00eog"; // replace with your desired link
-    window.open(url, "_blank");
+    // const url = "https://youtu.be/PyeS1T00eog"; nk
+    // window.open(url, "_blank");
   }
   
 
@@ -141,7 +141,7 @@ export default function Home() {
         )}
 
         <div style={animationContainer}>
-          <img style={animation} src="/couple_dancing.gif" alt="" />
+          <img style={animation} src="" alt="" />
         </div>
         {/* <PhotoGallery images={images}/> */}
       </main>
