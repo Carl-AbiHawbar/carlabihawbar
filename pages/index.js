@@ -104,10 +104,10 @@ export default function Home() {
     // window.open(url, "_blank");
   }
   
-  // const handlePlayClick = () => {
-  //   const url = "/video.mp4";
-  //   window.open(url, "_blank");
-  // };
+  const handlePlayClick = () => {
+    const url = "/video.mp4";
+    window.open(url, "_blank");
+  };
 
   const images = ['img1.jpg', 'img2.jpg', 'img1.jpg', 'img2.jpg']
 
@@ -146,7 +146,7 @@ export default function Home() {
         </div>
         <div>
           <p>Our Memories:</p>
-          <a href='/ourMemo' style={playButton} hoverStyle={playButtonHover}  onMouseOver={(e) => Object.assign(e.target.style, playButtonHover)} onMouseOut={(e) => e.target.style.transform = 'scale(1)'}><Image width={50} height={50} src="/play.png"/></a></div>
+          <a style={playButton} hoverStyle={playButtonHover} onClick={handlePlayClick} onMouseOver={(e) => Object.assign(e.target.style, playButtonHover)} onMouseOut={(e) => e.target.style.transform = 'scale(1)'}><Image width={50} height={50} src="/play.png"/></a></div>
 
         {showConfetti && (
           <Confetti
