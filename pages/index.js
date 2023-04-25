@@ -68,11 +68,11 @@ const button = {
 }
 
 const yesButton = {
-  background: '#1C1C1C',
+  background: '#555555',
 }
 
 const noButton = {
-  background: '#DC143C',
+  background: '#FEFFF8',
 }
 
 const animationContainer = {
