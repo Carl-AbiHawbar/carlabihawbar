@@ -146,7 +146,7 @@ export default function Home() {
         </div>
         <div>
           <p>Our Memories:</p>
-          <a style={playButton} hoverStyle={playButtonHover} onClick={handlePlayClick} onMouseOver={(e) => Object.assign(e.target.style, playButtonHover)} onMouseOut={(e) => e.target.style.transform = 'scale(1)'}><Image width={50} height={50} src="/play.png"/></a></div>
+          <a href='/ourMemo' style={playButton} hoverStyle={playButtonHover} onMouseOver={(e) => Object.assign(e.target.style, playButtonHover)} onMouseOut={(e) => e.target.style.transform = 'scale(1)'}><Image width={50} height={50} src="/play.png"/></a></div>
 
         {showConfetti && (
           <Confetti
