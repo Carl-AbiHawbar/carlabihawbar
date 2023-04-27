@@ -104,10 +104,9 @@ export default function Home() {
   }
   
   const handlePlayClick = () => {
-    const url = "https://youtu.be/rA3Bg6_DJeU"; nk
+    const url = "https://youtu.be/rA3Bg6_DJeU";
     window.open(url, "_blank");
   };
-
   const images = ['img1.jpg', 'img2.jpg', 'img1.jpg', 'img2.jpg']
 
   return (
