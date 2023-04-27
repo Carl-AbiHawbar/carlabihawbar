@@ -104,7 +104,7 @@ export default function Home() {
   }
   
   const handlePlayClick = () => {
-    const url = "/video.mp4";
+    const url = "https://youtu.be/rA3Bg6_DJeU"; nk
     window.open(url, "_blank");
   };
 
