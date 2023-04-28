@@ -112,19 +112,19 @@ export default function Home() {
   return (
     <div style={container}>
       <Head>
-        <title>Carl Abi Hawbar</title>
+        <title>Will you go to prom with me?</title>
         <link rel="icon" href="/star.png" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
       </Head>
 
       <main style={main}>
         <h1 style={title}>
-          <span><Image width={100} height={100} src="/star.png" />Carl</span> 
-          <span style={underline}>Abi</span> 
-          <span>Hawbar<Image width={100} height={100} src="/star.png" /></span>
+          <span><Image width={100} height={100} src="/star.png" />Will you </span> 
+          <span style={underline}>go to prom </span> 
+          <span>with me?<Image width={100} height={100} src="/star.png" /></span>
         </h1>
 
-        {/* <p style={description}>
+        <p style={description}>
           Hey MarieJoe, 
         </p>
         <p style={description}>
@@ -132,7 +132,7 @@ export default function Home() {
         </p>
         <p style={description}>
           Will you do me the honor of being my prom date?
-        </p> */}
+        </p>
 
         <div style={buttonContainer}>
           <a style={{...button, ...yesButton}} onMouseOver={(e) => Object.assign(e.target.style, playButtonHover)} onMouseOut={(e) => e.target.style.transform = 'scale(1)'} onClick={handleYesClick}>
@@ -142,9 +142,9 @@ export default function Home() {
             <span>No.</span>
           </a>
         </div>
-        {/* <div> */}
-          {/* <p>Our Memories:</p>
-          <a style={playButton} hoverStyle={playButtonHover} onClick={handlePlayClick} onMouseOver={(e) => Object.assign(e.target.style, playButtonHover)} onMouseOut={(e) => e.target.style.transform = 'scale(1)'}><Image width={50} height={50} src="/play.png"/></a></div> */}
+        <div>
+          <p>Our Memories:</p>
+          <a style={playButton} hoverStyle={playButtonHover} onClick={handlePlayClick} onMouseOver={(e) => Object.assign(e.target.style, playButtonHover)} onMouseOut={(e) => e.target.style.transform = 'scale(1)'}><Image width={50} height={50} src="/play.png"/></a></div>
 
         {showConfetti && (
           <Confetti
